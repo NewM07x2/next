@@ -1,2 +1,2 @@
-# next
-next.js
+# next.js
+react dev
