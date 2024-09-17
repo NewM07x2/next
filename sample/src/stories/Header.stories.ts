@@ -20,7 +20,29 @@ export const LoggedIn: Story = {
     user: {
       name: 'Jane Doe',
     },
+    onLogin: () => {
+      // Implement login logic here
+    },
+    onLogout: () => {
+      // Implement logout logic here
+    },
+    onCreateAccount: () => {
+      // Implement create account logic here
+    },
   },
 };
 
-export const LoggedOut: Story = {};
+export const LoggedOut: Story = {
+  args: {
+    user: undefined, // ユーザーがログアウト状態を示すためにnullやundefinedを使用
+    onLogin: () => {
+      // ログイン処理を実装
+    },
+    onLogout: () => {
+      // ログアウト処理（通常不要であれば空でも可）
+    },
+    onCreateAccount: () => {
+      // アカウント作成の処理を実装
+    },
+  },
+};

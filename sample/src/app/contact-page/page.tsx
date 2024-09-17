@@ -1,10 +1,9 @@
 import Layout from "../layout";
 import Link from 'next/link';
-
-export default function blogPage() {
+export default function ContactPage() {
   return (
     <>
-      <p className="text-4xl">blog Page</p>
+      <p className="text-4xl">Contact Page</p>
     </>
   );
 }
