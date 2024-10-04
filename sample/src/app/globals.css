@@ -24,6 +24,9 @@ body {
 
 /* 既存のスタイル */
 /* ... */
+.api-title {
+  color: blue;
+}
 
 /* footer を画面下に固定するためのスタイル */
 footer {
