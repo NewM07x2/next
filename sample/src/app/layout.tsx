@@ -28,6 +28,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
                   <Link href="/reducer-page" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Reducer</Link>
                   <Link href="/redux-page" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Redux</Link>
                   <Link href="/api" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">API</Link>
+                  <Link href="/graphql" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Graphql</Link>
                 </div>
               </div>
             </nav>
