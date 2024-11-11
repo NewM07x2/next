@@ -24,22 +24,22 @@ interface TaskEditBottonProps {
   onDelete: (id: string) => void;
 }
 
-const TaskCard = ({ id, name, status, onEdit, onDelete, update_date, created_date }: TaskEditBottonProps) => {
+const TaskCard = ({ id, name, detail, status, update_date, created_date, onEdit, onDelete }: TaskEditBottonProps) => {
   return (
-    <div className='w-72'>
+    <div id='card' className='w-72'>
       <Card>
         <CardHeader>
           <CardTitle>{name}</CardTitle>
           {/* <CardDescription>タスクの詳細</CardDescription> */}
         </CardHeader>
         <CardContent>
-          <p>タスクの詳細</p>
+          <p className="overflow-hidden text-ellipsis h-6">{detail}</p>
         </CardContent>
         <CardFooter className='w-full'>
           <div className='flex flex-col w-full'>
             <p className='mb-1'>{ update_date ? `更新日：${update_date}` : `作成日：${created_date}` }</p>
             <div className='flex justify-between items-center'>
-              <div className={`flex items-center justify-center text-sm text-white rounded-full px-3 py-0 h-7 ${status === '9' ? 'bg-gray-800': status === '1' ? 'bg-blue-500': 'bg-green-400'}`}>{status === '9' ? '完了': status === '1' ? '対応中': '新規'}</div>
+              <div className={`flex items-center justify-center text-sm text-white rounded-full px-3 py-0 h-7 ${status === 'completed' ? 'bg-gray-800': status === 'progress' ? 'bg-blue-500': 'bg-green-400'}`}>{status === 'completed' ? '完了': status === 'progress' ? '対応中': '新規'}</div>
               <div className='flex gap-4'>
                 <TaskEditBotton id={id} onEdit={onEdit}/>
                 <TaskDeleteBotton id={id} onDelete={onDelete}/>

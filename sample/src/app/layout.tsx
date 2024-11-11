@@ -15,13 +15,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html className="h-full overflow-hidden">
-      <body className="flex flex-col h-full">
+      <body className="flex flex-col min-h-screen">
         <Providers>
-          <header className="flex-shrink-0">
+          <header className="flex-shrink-0 fixed top-0 left-0 right-0 z-10">
             <nav className="bg-gray-800 w-screen">
               <div className="flex items-center pl-8 h-14">
                 <div className="flex space-x-4">
                   <Link href="/" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Home</Link>
+                  <Link href="/type-script" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">TypeScript</Link>
                   <Link href="/blog-page" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Blog</Link>
                   <Link href="/contact-page" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Contact</Link>
                   <Link href="/modal-page" className="text-gray-300 hover:bg-gray-700 px-3 py-2 rounded">Modal</Link>
@@ -33,13 +34,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </div>
             </nav>
           </header>
-          <main className="flex flex-1 justify-center items-center flex-col w-screen">
+          <main className="flex-1 w-full mt-14 mb-12 overflow-y-auto">
             {children}
           </main>
-          <footer className="flex bottom-0 left-0 right-0 h-12 flex justify-center items-center border-t bg-white">
+          <footer className="flex-shrink-0 fixed bottom-0 left-0 right-0 h-12 flex justify-center items-center border-t bg-white">
             <a className="flex items-center">
-              Powered by 
-              <Image src="/sanuna.svg" alt="Vercel Logo" width={25} height={25} className="ml-1"/>
+            Copyright©
+              <Image src="/sanuna.svg" alt="Vercel Logo" width={25} height={25} className="mx-1"/>
+            All Rights Reserved
             </a>
           </footer>
         </Providers>

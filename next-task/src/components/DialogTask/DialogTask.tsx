@@ -13,6 +13,8 @@ import {
   DialogTitle,
   DialogClose,
 } from "@/components/ui/dialog"
+import { Select, SelectTrigger, SelectValue, SelectContent, SelectItem } from "@/components/ui/select";
+
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -26,6 +28,11 @@ interface DialogTaskProps {
   onSave: (data: { name: string; detail: string, status: string }) => void;
 }
 
+const statusOptions = [
+  { value: "new", label: "New" },
+  { value: "progress", label: "Progress" },
+  { value: "completed", label: "Completed" }
+];
 
 const DialogTask = ({ open, onOpenChange, initialData, onSave }: DialogTaskProps) => {
   const [name, setName] = useState('');
@@ -44,9 +51,20 @@ const DialogTask = ({ open, onOpenChange, initialData, onSave }: DialogTaskProps
     }
   }, [initialData, open]);
 
-  const excu = () => {
+  const fixed = () => {
     onSave({ name, detail, status });
     onOpenChange(false);
+  };
+
+  const cancel = () => {
+    onOpenChange(false);
+  };
+
+  const isDisabled = () => {
+    if (!name) {
+      return true
+    }
+    return false
   };
 
   return (
@@ -58,17 +76,32 @@ const DialogTask = ({ open, onOpenChange, initialData, onSave }: DialogTaskProps
           </DialogHeader>
           <div className="grid gap-4 py-1">
             <div className="grid items-center ">
-              <Label className="mb-1">Task Name</Label>
+              <Label className="mb-1"><span className='text-red-500'>*</span>Task Name</Label>
               <Input id="name" value={name} onChange={(e) => setName(e.target.value)} />
             </div>
             <div className="grid items-center">
               <Label className="mb-1">Task Detail</Label>
               <Textarea value={detail} onChange={(e) => setDetail(e.target.value)} placeholder=""/>
             </div>
+            <div className="grid items-center">
+              <Label className="mb-1">Task Status</Label>
+              <Select value={status} onValueChange={(value) => setStatus(value)}>
+                <SelectTrigger>
+                  <SelectValue placeholder="Select a status" />
+                </SelectTrigger>
+                <SelectContent>
+                  {statusOptions.map(option => (
+                    <SelectItem key={option.value} value={option.value}>
+                      {option.label}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
           </div>
           <DialogFooter>
-            <Button variant="lightgray" onClick={() => onOpenChange(false)}>キャンセル</Button>
-            <Button variant="red" onClick={excu}>決定</Button>
+            <Button variant="lightgray" onClick={cancel}>キャンセル</Button>
+            <Button variant="red" onClick={fixed} disabled={isDisabled()}>決定</Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
