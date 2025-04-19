@@ -90,10 +90,8 @@ export default function MainPage() {
     
     try {
       startTransition(async () => {
-        console.log('status')
         const result = await deleteAction(id);
-        console.log('result', result)
-        if (result && result.status === 200) {
+        if (result?.status === 200) {
           // 削除成功後、タスクリストを更新
           dispatch(fetchTasks());
         } else {
@@ -140,7 +138,7 @@ export default function MainPage() {
   const actionSaveDBA = () => {}
 
   return (
-    <div className="text-gray-800 p-8 h-full overflow-auto pb-24 flex flex-col">
+    <div className="text-gray-800 p-8 h-full overflow-auto pb-24 flex flex-col main-group-page">
       <header className="flex justify-between items-center">
         <h1 className="text-2xl font-bold flex items-center">All Tasks</h1>
         <Button variant="red" onClick={showModal} className='rounded-full gap-1 bg-blue-600 hover:bg-blue-800 '><IoMdAddCircle />Add Task</Button>

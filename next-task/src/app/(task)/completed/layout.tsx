@@ -6,7 +6,7 @@ const CompletedLayout = ({
   children: React.ReactNode;
 }>) => {
   return (
-    <main className='bg-slate-50 flex-1 overflow-auto'>{children}</main>
+    <main className='bg-slate-50 flex-1 overflow-auto completed-class'>{children}</main>
   )
 }
 

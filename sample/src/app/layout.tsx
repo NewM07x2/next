@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from 'next/link';
 import Image from 'next/image';
-import "./globals.css";
+import "@/styles/globals.css";
 
 import React from 'react';
 

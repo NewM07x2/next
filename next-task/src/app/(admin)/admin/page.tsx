@@ -1,7 +1,7 @@
 export default function AdminHome() {
   return (
     <main className="">
-      Main Page
+      Main Page 1
     </main>
   );
 }

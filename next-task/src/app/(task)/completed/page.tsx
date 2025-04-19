@@ -25,19 +25,25 @@ export default function CompletedPage() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
+    // 初期表示時にタスクリストをタスクリストを取得
     fetchTasks();
   }, []);
 
   const fetchTasks = async () => {
+    // 非同期で取得する。
     try {
       const params = new URLSearchParams({ status: 'completed' });
       const response = await fetch(`/api/completedTasks?${params.toString()}`, { 
         method: 'GET'
       });
+      // console.log(params.toString()); 「status=completed」のようなパラメータが生成される。
+      // console.log(response);
       if (!response.ok) {
         throw new Error('Failed to fetch tasks');
       }
+      // console.log(response.url);
       const data = await response.json();
+      // console.log(data);
       setTasks(data);
     } catch (error) {
       console.error('Error fetching tasks:', error);
