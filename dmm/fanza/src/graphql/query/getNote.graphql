@@ -1,0 +1,6 @@
+query getNote {
+  note {
+    id
+    memo
+  }
+}

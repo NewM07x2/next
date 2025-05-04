@@ -2,7 +2,7 @@
 
 import { Provider } from 'urql';
 import React from 'react';
-import client from '../grapql/urqlClient';
+import client from '../graphql/urqlClient';
 import './globals.css';
 
 export default function RootLayout({

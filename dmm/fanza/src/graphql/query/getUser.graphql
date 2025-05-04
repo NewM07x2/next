@@ -1,6 +1,7 @@
-query Note {
-  note {
+query getUser {
+  user {
     id
-    memo
+    name
+    age
   }
 }
