@@ -1,0 +1,6 @@
+query Note {
+  note {
+    id
+    memo
+  }
+}
